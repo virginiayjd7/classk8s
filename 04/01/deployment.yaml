@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: un-despliegue
+  name: un-despliegue
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: un-despliegue
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: un-despliegue
+    spec:
+      containers:
+      - image: nginx:1.20-alpine
+        name: un-pod
+        resources: {}
+status: {}

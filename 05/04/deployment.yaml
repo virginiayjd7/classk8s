@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aplicacion-disco
+  labels:
+    app: aplicacion-disco
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aplicacion-disco
+  template:
+    metadata:
+      labels:
+        app: aplicacion-disco
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.20-alpine
+        volumeMounts:
+          - mountPath: "/disco"
+            name: volumen
+        ports:
+        - containerPort: 80
+      # El uso de volúmenes con más de una réplica es problemático ya que todas
+      # ellas intentarán acceder al mismo disco al mismo tiempo
+      volumes:
+        - name: volumen
+          persistentVolumeClaim:
+            claimName: peticion-mi-volumen

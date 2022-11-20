@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: nuestro-daemonset
+  labels:
+    app: aplicacion-logs
+spec:
+  selector:
+    matchLabels:
+      app: aplicacion-logs
+  template:
+    metadata:
+      labels:
+        app: aplicacion-logs
+    spec:
+      containers:
+      - name: fluent
+        image: fluent/fluentd:edge
+        ports:
+        - containerPort: 24224

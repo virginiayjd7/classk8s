@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aplicacion-set
+  labels:
+    app: aplicacion-set
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: aplicacion-set
+  template:
+    metadata:
+      labels:
+        app: aplicacion-set
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.19-alpine
+#        volumeMounts:
+#          - mountPath: "/disco"
+#            name: volumen
+        ports:
+        - containerPort: 80
+#      volumes:
+#        - name: volumen
+#          persistentVolumeClaim:
+#            claimName: peticion-mi-volumen

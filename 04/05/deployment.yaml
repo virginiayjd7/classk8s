@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aplicacion-secreta
+  labels:
+    app: aplicacion-secreta
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aplicacion-secreta
+  template:
+    metadata:
+      labels:
+        app: aplicacion-secreta
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.20-alpine
+        envFrom:
+          - configMapRef:
+              name: mi-config
+          - secretRef:
+              name: mi-secreto
+        ports:
+        - containerPort: 80

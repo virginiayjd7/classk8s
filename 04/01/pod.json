@@ -1,0 +1,19 @@
+{
+    "kind": "Pod",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "un-pod",
+        "labels": {
+            "run": "un-pod"
+        }
+    },
+    "spec": {
+        "containers": [
+            {
+                "name": "un-contenedor",
+                "image": "nginx:1.20-alpine",
+                "resources": {}
+            }
+        ]
+    }
+}

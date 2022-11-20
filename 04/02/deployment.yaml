@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: despliegue-etiquetas
+  annotations:
+    kubernetes.io/description: "App del curso de K8s"
+    a8r.io/owner: "alvarogonzalez"
+  labels:
+    app: aplicacion-etiquetas
+    environment: production
+    app.kubernetes.io/name: etiquetas
+    client: acme
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: aplicacion-etiquetas
+      environment: production
+  template:
+    metadata:
+      labels:
+        app: aplicacion-etiquetas
+        environment: production
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.20-alpine
+        ports:
+        - containerPort: 80
+  minReadySeconds: 5
+  revisionHistoryLimit: 5
+  progressDeadlineSeconds: 100

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-ingress
+spec:
+  type: ClusterIP
+  selector:
+    app: mi-ingress
+  ports:
+    - port: 80
+      targetPort: 80

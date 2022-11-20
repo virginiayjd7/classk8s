@@ -1,0 +1,38 @@
+{
+    "kind": "Deployment",
+    "apiVersion": "apps/v1",
+    "metadata": {
+        "name": "un-despliegue",
+        "creationTimestamp": null,
+        "labels": {
+            "app": "un-despliegue"
+        }
+    },
+    "spec": {
+        "replicas": 10,
+        "selector": {
+            "matchLabels": {
+                "app": "un-despliegue"
+            }
+        },
+        "template": {
+            "metadata": {
+                "creationTimestamp": null,
+                "labels": {
+                    "app": "un-despliegue"
+                }
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "name": "un-pod",
+                        "image": "nginx:1.20-alpine",
+                        "resources": {}
+                    }
+                ]
+            }
+        },
+        "strategy": {}
+    },
+    "status": {}
+}

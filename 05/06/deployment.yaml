@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mi-ingress
+  labels:
+    app: mi-ingress
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mi-ingress
+  template:
+    metadata:
+      labels:
+        app: mi-ingress
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.20-alpine
+        ports:
+        - containerPort: 80

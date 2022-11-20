@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aplicacion-disco-gke
+  labels:
+    app: aplicacion-disco-gke
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aplicacion-disco-gke
+  template:
+    metadata:
+      labels:
+        app: aplicacion-disco-gke
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.20-alpine
+        volumeMounts:
+          - mountPath: "/disco"
+            name: volumen
+        ports:
+        - containerPort: 80
+      volumes:
+        - name: volumen
+          persistentVolumeClaim:
+            claimName: peticion-mi-volumen-gke

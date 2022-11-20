@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-configurada
+  labels:
+    app: web-configurada
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-configurada
+  template:
+    metadata:
+      labels:
+        app: web-configurada
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.20-alpine
+        # Sólo algunos valores
+        env:
+          - name: MENSAJE
+            valueFrom:
+              configMapKeyRef:
+                name: config-web
+                key: mensaje
+        # Todos los valores
+#        envFrom:
+#          - configMapRef:
+#              name: config-web
+        volumeMounts:
+          - mountPath: /etc/nginx/templates
+            name: templates
+            readOnly: true
+        ports:
+        - containerPort: 80
+      volumes:
+        - name: templates
+          configMap:
+            name: config-web
+            items:
+              - key: default.conf.template
+                path: default.conf.template

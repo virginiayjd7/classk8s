@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hola-deployment
+  labels:
+    app: aplicacion-externa
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: aplicacion-externa
+  template:
+    metadata:
+      labels:
+        app: aplicacion-externa
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.20-alpine
+        ports:
+        - containerPort: 80

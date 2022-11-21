@@ -21,7 +21,7 @@ spec:
     matchLabels:
       app: mi-set
   replicas: 3
-  serviceName: service-set
+  serviceName: service-set #seguir metada y cuantos pods se lanza
   template:
     metadata:
       labels:
@@ -44,3 +44,4 @@ spec:
       resources:
         requests:
           storage: 1Gi
+          #multiple deficiones seprandolas con --- para yaml

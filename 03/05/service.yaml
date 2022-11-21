@@ -4,7 +4,7 @@ metadata:
   name: mi-servicio
 spec:
   selector:
-    app: aplicacion-2
+    app: aplicacion-externa
   ports:
     - protocol: TCP
       port: 80

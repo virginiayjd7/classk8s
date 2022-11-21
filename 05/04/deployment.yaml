@@ -28,3 +28,4 @@ spec:
         - name: volumen
           persistentVolumeClaim:
             claimName: peticion-mi-volumen
+#apuntart a una volumen persisnte del pvc

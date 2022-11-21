@@ -24,3 +24,8 @@ spec:
               name: mi-secreto
         ports:
         - containerPort: 80
+#llama al config map el usuario y la contraseña kubectl exec -ti aplicacion-secreta-5d68449fdf-79r4g -- ash
+#se ve la contraseña en el env
+#ubectl create secret generic secreto-terminal --from-literal=nombre=yaneth --from-literal=password=root2022**
+#kubectl get secrets secreto-terminal -o yaml 
+#base64 -d

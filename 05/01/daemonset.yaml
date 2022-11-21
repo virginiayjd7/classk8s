@@ -18,3 +18,7 @@ spec:
         image: fluent/fluentd:edge
         ports:
         - containerPort: 24224
+    # no se definen replicas
+    # lanza nodos que se necesite
+    #kubectl delete pod nuestro-daemonset-46wb8 y crea automaticamente otro  
+    # para losg vpn copia de segurida un pod en cada nodo

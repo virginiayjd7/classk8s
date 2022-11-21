@@ -26,3 +26,4 @@ spec:
 #        - name: volumen
 #          persistentVolumeClaim:
 #            claimName: peticion-mi-volumen
+# todos los volumenes apuntaria al mismo volumen 

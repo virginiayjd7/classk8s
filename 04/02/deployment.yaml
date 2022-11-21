@@ -4,7 +4,7 @@ metadata:
   name: despliegue-etiquetas
   annotations:
     kubernetes.io/description: "App del curso de K8s"
-    a8r.io/owner: "alvarogonzalez"
+    a8r.io/owner: "yanethaquino"
   labels:
     app: aplicacion-etiquetas
     environment: production

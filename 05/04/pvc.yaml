@@ -4,7 +4,12 @@ metadata:
   name: peticion-mi-volumen
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteOnce #no se pude multiples pods para herce lectura y estritura
   resources:
     requests:
       storage: 10Gi
+# volumne permanece en tiempo hast que se bore
+#volumen persisntente
+#kubectl exec -ti aplicacion-disco-6b48c9c4bc-s79hh -- ash
+#df -h //ver discos  ssd 
+#

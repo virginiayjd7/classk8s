@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: cronpi
 spec:
-  schedule: "* * * * *"
+  schedule: "* * * * *" # minuto hora dia mes 10 1 **1 /espera que cumpla el horari
   jobTemplate:
     spec:
       template:
@@ -14,3 +14,8 @@ spec:
             command: ["perl",  "-Mbignum=bpi", "-wle", "print bpi(2000)"]
           restartPolicy: Never
       backoffLimit: 4
+    #kubectl get cronjobs
+    #kubectl get cronjobs
+    #kubectl get jobs
+    # kubectl get cronjobs.batch
+    #copia de segurida conciones nocuturas mantenimiento

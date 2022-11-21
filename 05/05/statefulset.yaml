@@ -45,3 +45,4 @@ spec:
         requests:
           storage: 1Gi
           #multiple deficiones seprandolas con --- para yaml
+          # kubectl get pvc

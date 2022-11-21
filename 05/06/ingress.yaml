@@ -20,3 +20,6 @@ spec:
             name: service-ingress
             port:
               number: 80
+              #para conecione externas
+              #balanceador de carga
+              #
